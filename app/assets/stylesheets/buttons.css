@@ -1,0 +1,292 @@
+	/* Buttons */
+
+a.button_big {
+	color: #fff!important;
+	font-weight: bold;
+	text-shadow: 1px 1px 2px #333;
+}
+
+a.button_big, a.button_big i {
+	height: 63px;
+	line-height: 63px;
+	display: block;
+	float: right;
+	text-align: center;
+	padding: 0 3px 0 28px;
+	position: relative;
+	margin: 0 28px 0 0;
+	background-image: url('../../images/featured_buttons.png');
+	background-repeat: no-repeat;
+	background-position: left top;
+	font-size: 1.3em;
+}
+
+#featured a.button_big {
+	font-size: 1.5em;
+        font-weight:normal;
+	float: none;
+	padding-left: 34px;
+}
+
+a.button_big i {
+	position: absolute;
+	padding: 0;
+	width: 28px;
+	right: -28px;
+	margin: 0;
+	top: 0;
+}
+
+a.button_big i {
+	background-position: right top;
+}
+
+a.button_big:hover {
+	background-position: left -63px;
+}
+
+a.button_big:hover i {
+	background-position: right -63px;
+}
+
+a.button_big:hover {
+	color: #fff!important;
+}
+
+.but_c {
+	font-weight: bold;
+	color: #fff;
+	text-shadow: 1px 1px 2px #333;
+	margin: 0 20px 0 2px;
+}
+
+.but_c, .but_c i, #commentform #submit, #contact-form-widget #contactFormWidget #submittedWidget, #submittedContact, #contact-form-widget #contactFormWidget #submittedWidget {
+	background: url('../../images/buttons.png') left top no-repeat;
+	display: block;
+	padding: 0 3px 0 18px;
+	position: relative;
+	height: 56px;
+	line-height: 56px;
+	color: #fff!important;
+}
+
+.but_c i {
+	background-position: right top;
+	width: 15px;
+	padding: 0;
+	position: absolute;
+	right: -15px;
+	top: 0;
+}
+
+a.but_small, a.but_small:hover {
+	color: #fff!important;
+}
+
+#submittedContact, #commentform #submit, #contact-form-widget #contactFormWidget #submittedWidget {
+	float: right!important;
+	margin-right: 19px;
+	cursor: pointer;
+	background-position: -20px 0;
+	padding: 0 10px;
+	border-left: #639450 solid 2px;
+	border-right: #639450 solid 2px;
+	border-bottom: #639450 solid 2px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+}
+
+button.but_c i {
+	right: 6px;
+	top: -14px;
+}
+
+.but_c:hover {
+	background-position: left -224px;
+	color: #fff;
+}
+
+.but_c:hover i {
+	background-position: right -224px;
+}
+
+.but_small, .but_small i, #commentform #submit, #submittedContact,  #contact-form-widget #contactFormWidget #submittedWidget {
+	height: 40px;
+	line-height: 40px;
+	background-position: left -448px;
+	border: 0;
+	font-size: 13px;
+	text-align: center;
+}
+
+.but_small i {
+	background-position: right -448px;
+}
+
+.but_small:hover {
+	background-position: left -612px;
+}
+
+.but_small:hover i {
+	background-position: right -612px;
+}
+
+a.small_blue {
+	background-position: left -489px;
+}
+
+a.small_blue i {
+	background-position: right -489px;
+}
+
+a.small_blue:hover {
+	background-position: left -653px;
+}
+
+a.small_blue:hover i {
+	background-position: right -653px;
+}
+
+a.small_orange {
+	background-position: left -530px;
+}
+
+a.small_orange i {
+	background-position: right -530px;
+}
+
+a.small_orange:hover {
+	background-position: left -694px;
+}
+
+a.small_orange:hover i {
+	background-position: right -694px;
+}
+
+a.small_gray {
+	background-position: left -571px;
+}
+
+a.small_gray i {
+	background-position: right -571px;
+}
+
+a.small_gray:hover {
+	background-position: left -735px;
+}
+
+a.small_gray:hover i {
+	background-position: right -735px;
+}
+
+a.big_blue {
+	background-position: left -126px;
+        margin-left:25px;
+}
+
+a.big_blue i {
+	background-position: right -126px;
+}
+
+a.big_blue:hover {
+	background-position: left -189px;
+}
+
+a.big_blue:hover i {
+	background-position: right -189px;
+}
+
+a.big_green {
+       margin-right:40px; 
+}
+
+
+a.big_orange {
+	background-position: left -252px;
+}
+
+a.big_orange i {
+	background-position: right -252px;
+}
+
+a.big_orange:hover {
+	background-position: left -315px;
+}
+
+a.big_orange:hover i {
+	background-position: right -315px;
+}
+
+a.big_gray {
+	background-position: left -378px;
+	color:#333;
+}
+
+a.big_gray i {
+	background-position: right -378px;
+}
+
+a.big_gray:hover {
+	background-position: left -441px;
+	color: #000;
+}
+
+a.big_gray:hover i {
+	background-position: right -441px;
+}
+
+a.but_alt, a.but_alt i {
+	height: 41px;
+	line-height: 41px;
+	background: url('../../images/buttons_alt.png') left top no-repeat;
+	font-size: 1em;
+}
+
+a.but_alt i {
+	background-position: right top;
+}
+
+a.but_alt:hover {
+	background-position: left -41px;
+}
+
+a.but_alt:hover i {
+	background-position: right -41px;
+}
+
+a.alt_small_green {
+	background-position: left -82px;
+}
+
+a.alt_small_green i {
+	background-position: right -82px;
+}
+
+a.alt_small_green:hover {
+	background-position: left -123px;
+}
+
+a.alt_small_green:hover i {
+	background-position: right -123px;
+}
+
+a.alt_small_gray {
+	background-position: left -164px;
+	color: #333!important;
+	text-shadow: 0 1px 0 #fff;
+}
+
+a.alt_small_gray i {
+	background-position: right -164px;
+}
+
+a.alt_small_gray:hover {
+	background-position: left -205px;
+	color: #000;
+}
+
+a.alt_small_gray:hover i {
+	background-position: right -205px;
+}
+
