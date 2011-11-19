@@ -6,6 +6,7 @@ class CompaniesController < ApplicationController
   
   def show
     @company = current_user.company
+    @employees = @company.employees
   end
   
   def new

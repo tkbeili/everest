@@ -1,7 +1,14 @@
 Everest::Application.routes.draw do
   
+  get "signin" => "sessions#new", :as => "signin"
+  post "signin" => "sessions#create", :as => "signinuser"
+  
+  get "signup" => "employees#new", :as => "signup"
+  post "signup" => "employees#create", :as => "connect"  
+  
   resources :companies do 
     resources :invitations
+    resources :giftings
   end
   resources :gifts
   resources :employees          

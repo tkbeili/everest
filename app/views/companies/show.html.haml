@@ -5,4 +5,10 @@
 %h2 Left
 = @company.left
 
+%br
+%br
+
+%h2 Employees
+- @employees.each do |employee|
+  = render "employee_profile", :employee => employee
 

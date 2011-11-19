@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20111119180939) do
   end
 
   create_table "gifts", :force => true do |t|
-    t.string   "type"
+    t.string   "gift_type"
     t.integer  "value"
     t.integer  "gifter_id"
     t.integer  "giftee_id"
