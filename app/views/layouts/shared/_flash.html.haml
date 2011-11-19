@@ -1,0 +1,6 @@
+- if flash && (flash[:notice] || flash[:error] || flash[:alert]).present?
+  #messagebox
+    #messagebox_wrapper
+      .message{:class => flash.first[0].to_s}
+        %div= flash[:notice] || flash[:error]  || flash[:alert]
+        %span.dismiss= link_to("Dismiss", "javascript:void(0);", :title => "Dismiss")

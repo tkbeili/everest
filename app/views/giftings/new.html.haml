@@ -1,0 +1,30 @@
+.profile
+  = image_tag @employee.gravatar_url(root_url)
+  = @employee.full_name_no_email
+  = @employee.email
+  
+%h2 Gift the Employee
+= semantic_form_for @gift, :method => :post, :url => company_giftings_url(:company_id => @employee.company.id) do |gift|
+  = gift.inputs do
+    = gift.input :giftee_id, :as => :hidden
+    = gift.input :gifter_id, :as => :hidden
+    - Gift::TYPES.each do |key, value|      
+      - if value[:value].to_i > 0
+        - if current_user.available_gifts(key.to_s).count > 0 || (current_user.is_admin || current_user.company.budget > value[:value].to_i)
+          %input{:type => :radio, :name => "gift[gift_type]", :value => key}
+          =image_tag "#{key.to_s}_on.png"  
+        - else
+          %input{:type => :radio, :name => "gift[gift_type]", :value => key, :disabled => true}          
+          =image_tag "#{key.to_s}_off.png"          
+      - else
+        %input{:type => :radio, :name => "gift[gift_type]", :value => key, :checked => true}
+        =image_tag "free.png" 
+    = gift.input :message, :as => :text, :input_html => {:rows => 3}
+  = gift.buttons do  
+    = gift.commit_button "Gift it!"
+    
+%h2 History
+%h3= "Gift the #{@employee.full_name} have receieved"
+= render "gift_listing", :gifts => @employee.gifts_received 
+%h3= "Gift the #{@employee.full_name} have given"
+= render "gift_listing", :gifts => @employee.gifts_given

@@ -1,0 +1,8 @@
+!!! 5
+%html
+  = render "layouts/shared/head"
+  %body
+    .wrapper          
+      = render :partial => "layouts/shared/flash", :locals => {:flash => flash}
+      .content_wrapper      
+        = yield

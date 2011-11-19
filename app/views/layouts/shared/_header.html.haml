@@ -1,0 +1,8 @@
+.header
+  %h1= @school.name  
+  .utility_nav
+    -if current_user
+      %p= t("schools.show.hello", :name => current_user.full_name)
+      = link_to(t("signout"), signout_path(:subdomain => @school.subdomain))
+    -else
+      = link_to(t("signin"), signin_path(:subdomain => @school.subdomain))

@@ -1,0 +1,11 @@
+.small_center_form
+  %h2= "Log in"
+  = semantic_form_for :employee, :url => signin_url do |f|
+    = f.inputs do
+      = f.input :email
+      = f.input :password
+      = f.input :remember_me, :as => :boolean, :value => params[:remember_me]
+    = f.buttons do  
+      = f.commit_button "Sign In"
+      = link_to("Sign Up", signup_path)
+      

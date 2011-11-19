@@ -1,0 +1,45 @@
+$messagebox_border_color: '#FFCC00';
+$messagebox_bg_color: "#FFFFCC";
+$messagebox_font_color: "#CCCCCC";
+
+div#messagebox {
+  border-top: 4px solid $messagebox_border_color;
+  border-bottom: 4px solid $messagebox_border_color;
+  width: 50%;
+  background: $messagebox_bg_color; 
+  display: block;
+  left: 25%;
+  
+  div#messagebox_wrapper{
+    display: none;
+    margin: 0 auto;
+    overflow: hidden;
+    color: $messagebox_font_color;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    width: 50%;
+    min-height: 30 px;
+    left: 25%;
+    border-radius: 0px 0px 4px 4px;
+    .message { 
+      border-radius: 0px 0px 4px 4px;
+      div {
+        display: inline-block;
+        padding-right: 10px;      
+      }
+    }   
+    .notice, .alert, .error {
+      background: #DCE9DD;
+      background: -webkit-gradient(linear, left top, left bottom, from(#DCE9DD), to(#CCDFCD));
+      background: -moz-linear-gradient(-90deg, #DCE9DD, #CCDFCD);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#dce9dd, endColorstr=#ccdfcd);
+      -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#dce9dd, endColorstr=#ccdfcd);
+      border-bottom: 1px solid #ADCBAF;
+      color: #416347;      
+    }    
+    .alert, .error {
+      background: #EA8149;
+    }    
+  }    
+}

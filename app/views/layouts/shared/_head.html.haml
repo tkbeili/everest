@@ -1,0 +1,11 @@
+%head
+  = render_meta_title(local_assigns[:meta_title])
+  = stylesheet_link_tag :application
+  <!--[if IE 6]><%= stylesheet_link_tag 'ie6' %><![endif]-->
+  <!--[if IE 7]><%= stylesheet_link_tag 'ie7' %><![endif]-->
+  = javascript_include_tag :application
+  = csrf_meta_tag
+  = meta_tags(:description)
+  = meta_tags(:keywords)
+  %meta(http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1")
+  %meta(http-equiv="Content-Type" content="text/html;charset=utf-8")

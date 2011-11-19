@@ -1,0 +1,4 @@
+- gifts.each do |gift|
+  = render "gift_avatar", :gift => gift
+  = "#{gift.gifter.full_name} has gifted #{gift.giftee} on #{gift.created_at.strftime('%m/%d/%Y')}"
+  = "message: #{gift.message}" if gift.message
