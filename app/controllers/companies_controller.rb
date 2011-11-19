@@ -8,16 +8,16 @@ class CompaniesController < ApplicationController
   def create
     begin
       @employee = Employee.new(params[:company].delete(:employee))
-      @employee.make_admin
-      @company = company.new(params[:company])           
+      @employee.is_admin = true
+      @company = Company.new(params[:company])           
       ActiveRecord::Base.transaction do
         @company.save!
-        @employee.company = @company
+        @employee.company = @company        
         @employee.save!   
       end
-      logout
-      session[:auto_login_employee_id] = @employee.id
-      redirect_to root_url
+      auto_login(@employee)
+      session[:employee_id] = @employee.id
+      redirect_to new_company_invitation_path(@company.id)
     rescue ActiveRecord::RecordInvalid => invalid
        render :new
     end     

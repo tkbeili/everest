@@ -1,8 +1,7 @@
-class InvitationsController < CompaniesController
+class InvitationsController < ApplicationController
   before_filter :require_login
   
-  def new
-    
+  def new    
   end  
   
   

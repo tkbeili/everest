@@ -1,6 +1,8 @@
 Everest::Application.routes.draw do
   
-  resources :companies
+  resources :companies do 
+    resources :invitations
+  end
   resources :gifts
   resources :employees          
 
@@ -54,7 +56,7 @@ Everest::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 
