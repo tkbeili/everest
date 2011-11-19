@@ -1,0 +1,13 @@
+.small_center_form
+  %h2= "Create a Company"
+  = semantic_form_for @company do |company|
+    = company.inputs do
+      = company.input :name
+      = company.input :domain
+    %h3= "Company Admin"  
+    = company.semantic_fields_for @employee do |admin|
+      = admin.input :email
+      = admin.input :password
+      = admin.input :password_confirmation
+    = company.buttons do  
+      = company.commit_button "Sign Up"

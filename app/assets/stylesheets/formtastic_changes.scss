@@ -1,0 +1,117 @@
+$label_left_padding: 35%;
+
+.formtastic {
+  
+  li {
+    list-style-type: none;
+  }
+  
+  label {
+    width: $label_left_padding !important;  
+  }
+  
+  .boolean > label {
+    padding-left: $label_left_padding;
+  }
+  
+  .button {
+    float: none;    
+  }
+  
+  .buttons {
+    padding-left: $label_left_padding;
+  }
+  
+  .inline-hints, .inline-errors {
+    margin: 0 !important;
+    padding-left: $label_left_padding !important;
+  }
+  
+  input[type=text], input[type=password], input[type=email], input[type=url], input[type=tel], textarea {
+    width: 244px;
+    padding: 8px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    font-size: 1.2em;
+    color: #222;
+    background: white;
+    outline: none;
+    border-top: 1px solid #CCC;
+    border-left: 1px solid #CCC;
+    border-right: 1px solid #E7E6E6;
+    border-bottom: 1px solid #E7E6E6;    
+  }
+  
+  input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, input[type=url]:focus, input[type=tel]:focus, textarea:focus {
+      border: 1px solid #99a2aa;
+      box-shadow: 0 0 4px #99a2aa;
+      -moz-box-shadow: 0 0 4px #99a2aa;
+      -webkit-box-shadow: 0 0 4px #99a2aa; 
+  }  
+  
+  input[type=submit] {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+    background: #838A90;
+    background: -webkit-gradient(linear, left top, left bottom, from(#838A90), to(#414549));
+    background: -moz-linear-gradient(-90deg, #838A90, #414549);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#838a90, endColorstr=#414549);
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#838a90, endColorstr=#414549);
+    -webkit-border-radius: 200px;
+    -moz-border-radius: 200px;
+    border-radius: 200px;
+    text-shadow: black 0 1px 0;
+    text-decoration: none;
+    margin-right: 3px;
+    font-weight: bold;
+    font-size: 1.0em;
+    cursor: pointer;
+    padding: .6em 1.4em .5em 1.3em;
+    border: none;
+    color: #EFEFEF;    
+  }
+  
+  a.button, input[type=submit] {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+    background: #838a90;
+    background: -webkit-gradient(linear, left top, left bottom, from(#838a90), to(#414549));
+    background: -moz-linear-gradient(-90deg, #838a90, #414549);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#838a90, endColorstr=#414549);
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#838a90, endColorstr=#414549);
+    -webkit-border-radius: 200px;
+    -moz-border-radius: 200px;
+    border-radius: 200px;
+    text-shadow: black 0 1px 0;
+    text-decoration: none;
+    margin-right: 3px;
+    font-weight: bold;
+    font-size: 1.0em;
+    cursor: pointer;
+    padding: .6em 1.4em .5em 1.3em;
+    border: none;
+    color: #efefef; 
+  }
+  a.button:hover, input[type=submit]:hover {
+    color: #fff;
+    box-shadow: 0 1px 3px #888888;
+    -moz-box-shadow: 0 1px 3px #888888;
+    -webkit-box-shadow: 0 1px 3px #888888; 
+  }
+  
+  a.button:hover span.icon svg path, a.button:hover span.icon svg polygon, a.button:hover span.icon svg rect, a.button:hover span.icon svg circle, input[type=submit]:hover span.icon svg path, input[type=submit]:hover span.icon svg polygon, input[type=submit]:hover span.icon svg rect, input[type=submit]:hover span.icon svg circle {
+      fill: white !important; 
+  }
+  
+  a.button:active, input[type=submit]:active {
+    box-shadow: inset 0 1px 2px black;
+    -moz-box-shadow: inset 0 1px 2px black;
+    -webkit-box-shadow: inset 0 1px 2px black; 
+  }
+  
+  
+}
+

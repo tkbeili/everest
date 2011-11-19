@@ -1,0 +1,27 @@
+.small_center_form {
+  width: 600px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+  background: white;
+  padding: 20px 30px;
+  margin: 70px auto;
+  h2 {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+    padding: 5px 10px 3px 10px;
+    font-size: 1.0em;
+    font-weight: bold;
+    line-height: 140%;
+    background: #6A7176;
+    background: -webkit-gradient(linear, left top, left bottom, from(#6A7176), to(#4D5256));
+    background: -moz-linear-gradient(-90deg, #6A7176, #4D5256);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#6a7176, endColorstr=#4d5256);
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#6a7176, endColorstr=#4d5256);
+    border-bottom: 1px solid #44484B;
+    text-shadow: black 0 1px 0;
+    color: white;
+    margin: -22px -30px 20px -30px;    
+  }  
+}
