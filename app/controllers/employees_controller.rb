@@ -4,7 +4,7 @@ class EmployeesController < ApplicationController
   end
   
   def create
-    @employee = employee.new(params[:employee])
+    @employee = Employee.new(params[:employee])
     email = @employee.email
     @company = Company.find_by_domain(email[email.index("@")+1..email.length])
     if @company.nil?
@@ -12,12 +12,22 @@ class EmployeesController < ApplicationController
       render :new
     else
       @employee.company = @company
-      if @employee.save
-        auto_login(@employee)
-        redirect_to root_url, :notice => "Sign Up Success"
-      else
-        render :new
-      end      
+      invited_employee = Employee.where(:email => @employee.email, :crypted_password => nil)
+      if invited_employee        
+        if @employee.update_attributes(params[:employee])
+          auto_login(@employee)
+          redirect_to company_url(@employee.company.id), :notice => "Sign Up Success"
+        else
+          render :new
+        end        
+      else 
+        if @employee.save
+          auto_login(@employee)
+          redirect_to company_url(@employee.company.id), :notice => "Sign Up Success"
+        else
+          render :new
+        end 
+      end     
     end
   end
 

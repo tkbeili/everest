@@ -22,7 +22,14 @@
     = gift.input :message, :as => :text, :input_html => {:rows => 3}
   = gift.buttons do  
     = gift.commit_button "Gift it!"
-    
+- if current_user.is_admin
+  %h2="Share some cards with #{@employee.full_name} so that he/she can gift others"
+  = semantic_form_for :gift, :method => :post, :url => gift_share_url(:company_id => @employee.company.id) do |share|
+    = share.input :employee_id, :as => :hidden, :value => @employee.id
+    = share.input :small_count
+    = share.input :large_count
+    = share.buttons do  
+      = share.commit_button "Share it!"
 %h2 History
 %h3= "Gift the #{@employee.full_name} have receieved"
 = render "gift_listing", :gifts => @employee.gifts_received 

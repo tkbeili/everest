@@ -4,7 +4,7 @@ class Company < ActiveRecord::Base
   
   validates :name,:domain, :presence => true, :uniqueness => true
   
-  accepts_nested_attributes_for :employees, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
+  accepts_nested_attributes_for :employees, :allow_destroy => true
   
   def amount_spent
     left + invested

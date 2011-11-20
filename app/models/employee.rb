@@ -5,7 +5,7 @@ class Employee < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :first_name, :last_name
   
   validates :password, :password_confirmation, :presence => true, :length => {:minimum => 4, :maximum => 16}, :on => :create  
-  validates :email, :presence => true
+  validates :email, :presence => true, :uniqueness => true
   
   def full_name
     full_name = full_name_no_email

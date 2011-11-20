@@ -6,6 +6,8 @@ Everest::Application.routes.draw do
   get "signup" => "employees#new", :as => "signup"
   post "signup" => "employees#create", :as => "connect"  
   
+  post "gift_share" => "giftings#share", :as => "gift_share"
+  
   resources :companies do 
     resources :invitations
     resources :giftings

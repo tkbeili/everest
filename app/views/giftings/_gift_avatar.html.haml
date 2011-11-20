@@ -1,9 +1,6 @@
 - Gift::TYPES.each do |key, value|
-  - image_extension = key if (value[:name] == gift.gift_type)
-  = "#{value[:name]} == #{gift.gift_type}"
-  %br
--#   
--# - if gift.value > 0   
-  -# =image_tag "#{image_extension.to_s}_on.png"                     
--# - else
-  -# =image_tag "free.png" 
+  - @image_extension = key if (value[:name].to_s == gift.gift_type.to_s)
+- if gift.value > 0   
+  =image_tag "#{@image_extension.to_s}_small.png"                     
+- else
+  =image_tag "free_small.png"   

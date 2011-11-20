@@ -1,13 +1,17 @@
-%h2 Budget
-= @company.amount_spent
-%h2 Invested
-= @company.invested
-%h2 Left
-= @company.left
+- if current_user.is_admin 
+  %h2 Budget
+  = @company.amount_spent
+  %h2 Invested
+  = @company.invested
+  %h2 Left
+  = @company.left
 
 %br
 %br
-
+%h2 Feed
+= render "/giftings/gift_listing", :gifts => @gifts
+= "<i>no item!</i>" if @gifts.empty?
+  
 %h2 Employees
 - @employees.each do |employee|
   = render "employee_profile", :employee => employee
