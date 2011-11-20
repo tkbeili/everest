@@ -1,0 +1,20 @@
+.topbar
+  .fill
+    .container
+      .nav.secondary-nav
+        %ul
+          %li.menu
+            = link_to "sign in", signin_path
+.topbar
+  .fill
+    .container
+      %h3
+        %a{:href =>"/"} PayItForward
+      %ul
+        %li      
+          = link_to "Dashboard", company_url(current_user.company)
+        %li
+          = link_to "Employees", employees_url  
+      %ul.nav.secondary-nav
+        %li.menu
+          = link_to "sign in", signin_path
