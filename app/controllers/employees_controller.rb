@@ -8,6 +8,19 @@ class EmployeesController < ApplicationController
     @employee = Employee.new
   end
   
+  def edit
+    @employee = current_user    
+  end
+  
+  def update
+    @employee = Employee.find(params[:id])
+    if @employee.update_attributes(params[:employee])
+      redirect_to company_url(@employee.company), :notice => "Account updated successfully!"
+    else  
+      render :edit
+    end
+  end
+  
   def create
     @employee = Employee.new(params[:employee])
     email = @employee.email

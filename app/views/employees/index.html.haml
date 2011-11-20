@@ -1,3 +1,8 @@
-%h2 Employees
+.header{:style => "display:inline-block; float:left; width:50%"}
+  %h2 Employees
+.invite{:style => "display:inline-block; text-align: right; width:50%; margin-top:15px"}
+  = link_to "Add Employees", new_company_invitation_path(current_user.company.id) if current_user.is_admin
+%br
+%br    
 - @employees.each do |employee|
   = render "/companies/employee_profile", :employee => employee

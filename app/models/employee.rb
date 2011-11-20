@@ -2,7 +2,8 @@ class Employee < ActiveRecord::Base
   authenticates_with_sorcery!
   belongs_to :company
   attr_accessor :password_confirmation
-  attr_accessible :email, :password, :password_confirmation, :first_name, :last_name
+  attr_accessible :email, :password, :password_confirmation, :first_name, :last_name, :image
+  mount_uploader :image, ImageUploader
   
   validates :password, :password_confirmation, :presence => true, :length => {:minimum => 4, :maximum => 16}, :on => :create  
   validates :email, :presence => true, :uniqueness => true
@@ -30,6 +31,7 @@ class Employee < ActiveRecord::Base
   
   def gravatar_url(root_url)
     default_url = "#{root_url}assets/guest.png"
+    return image_url(:thumb) if image_url(:thumb)
     gravatar_id = Digest::MD5.hexdigest(email.downcase)
     "http://gravatar.com/avatar/#{gravatar_id}.png?s=48&d=#{CGI.escape(default_url)}"
   end  

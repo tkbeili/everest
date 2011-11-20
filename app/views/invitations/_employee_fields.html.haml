@@ -1,5 +1,7 @@
-= f.input :first_name
-= f.input :last_name
-= f.input :email
-= f.input :emp_id, :required => false
+= f.input :first_name, :input_html => {:AUTOCOMPLETE => "off"}
+= f.input :last_name, :input_html => {:AUTOCOMPLETE => "off"}
+= f.input :email, :input_html => {:AUTOCOMPLETE => "off"}
+= f.input :emp_id, :required => false, :label => "employee id", :required => false
+%br
+%br
 %hr

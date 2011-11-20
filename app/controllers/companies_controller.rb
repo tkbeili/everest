@@ -28,7 +28,7 @@ class CompaniesController < ApplicationController
       end
       auto_login(@employee)
       session[:employee_id] = @employee.id
-      redirect_to new_company_invitation_path(@company.id)
+      redirect_to company_path(@company)
     rescue ActiveRecord::RecordInvalid => invalid
        render :new
     end     

@@ -1,0 +1,18 @@
+- small_gifts = 0
+- large_gifts = 0
+- free_gifts = 0
+
+- gifts.each do |gift|
+  - small_gifts += 1 if gift.gift_type == Gift::TYPES[:small]
+  - free_gifts += 1 if gift.gift_type == Gift::TYPES[:free]
+  - large_gifts += 1 if gift.gift_type == Gift::TYPES[:large]
+   
+- if large_gifts > 0
+  = image_tag "large_on.png"
+  = large_gifts
+- if small_gifts > 0
+  = image_tag "small_on.png"
+  = small_gifts
+- if free_gifts > 0
+  = image_tag "free.png"
+  = free_gifts

@@ -14,7 +14,12 @@
         %li      
           = link_to "Dashboard", company_url(current_user.company) if current_user
         %li
-          = link_to "Employees", employees_url  
+          = link_to "Employees", employees_url if current_user
+        %li
+          = link_to "My Account", edit_employee_url(current_user.id) if current_user          
       %ul.nav.secondary-nav
         %li.menu
-          = link_to "sign in", signin_path
+          - if current_user
+            = link_to "sign out", signout_path
+          - else
+            = link_to "sign in", signin_path  

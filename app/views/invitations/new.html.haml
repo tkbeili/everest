@@ -1,7 +1,7 @@
-%h2 Invite Employee
-
-= semantic_form_for @company, :method => :post, :url => company_invitations_path(@company) do |f|
-  = f.fields_for :employees do |builder|
-    = render "employee_fields", :f => builder
-  = f.buttons do  
-    = f.commit_button "Invite"
+%h2 Add Employees
+.formtastic_oneliner
+  = semantic_form_for @company, :method => :post, :url => company_invitations_path(@company) do |f|
+    = f.fields_for :employees do |builder|
+      = render "employee_fields", :f => builder
+    = f.buttons do  
+      = f.commit_button "Add Employees"

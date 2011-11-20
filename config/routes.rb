@@ -2,6 +2,7 @@ Everest::Application.routes.draw do
   
   get "signin" => "sessions#new", :as => "signin"
   post "signin" => "sessions#create", :as => "signinuser"
+  get "signout" => "sessions#destroy", :as => "signout"
   
   get "signup" => "employees#new", :as => "signup"
   post "signup" => "employees#create", :as => "connect"  
