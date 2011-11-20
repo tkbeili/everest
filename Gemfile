@@ -18,7 +18,7 @@ gem 'awesome_print'
 gem 'mongrel', '>= 1.2.0.pre2', :group => [:development]
 gem "rmagick"
 gem "carrierwave"
-gem "activerecord-postgresql-adapter"
+gem "postgres-pr"
 
 group :test do
   gem "factory_girl_rails"
