@@ -121,6 +121,7 @@ GEM
     oauth2 (0.4.1)
       faraday (~> 0.6.1)
       multi_json (>= 0.0.5)
+    pg (0.11.0)
     polyglot (0.3.3)
     postgres-pr (0.6.3)
     rack (1.3.5)
@@ -215,6 +216,7 @@ DEPENDENCIES
   jquery-rails
   mongrel (>= 1.2.0.pre2)
   mysql2 (~> 0.3.2)
+  pg
   postgres-pr
   rails (= 3.1.1)
   rmagick
