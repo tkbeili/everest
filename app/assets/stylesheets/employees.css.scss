@@ -17,3 +17,13 @@
   }       
   
 }
+
+.employee_profile {
+  width: 15%;
+  display: inline-block;
+  margin-right: 10px;
+  .image, .name {
+    display: inline-block;
+    clear: both;
+  }
+}

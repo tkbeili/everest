@@ -10,13 +10,12 @@ gem "rspec-rails", :group => [:test, :development]
 gem "haml"
 gem "haml-rails"
 gem 'formtastic', '~> 2.0.0'
-gem "rmagick"
 gem "carrierwave"
 gem 'foreigner'
 gem 'cancan'
 gem 'awesome_print'
 gem 'mongrel', '>= 1.2.0.pre2', :group => [:development]
-gem "rmagick"
+gem 'rmagick'
 gem "carrierwave"
 gem "pg"
 gem "postgres-pr"

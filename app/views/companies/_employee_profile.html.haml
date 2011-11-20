@@ -1,2 +1,5 @@
-= link_to image_tag(employee.gravatar_url(root_url)), new_company_gifting_url(:company_id => employee.company, :id => employee)
-= employee.full_name
+.employee_profile
+  .image
+    = link_to image_tag(employee.gravatar_url(root_url), :class => "thumb_image"), new_company_gifting_url(:company_id => employee.company, :id => employee)
+  .name
+    = employee.full_name

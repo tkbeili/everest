@@ -1,8 +1,8 @@
 class Gift < ActiveRecord::Base
   belongs_to :company
-  TYPES = { :free => {:name => "Free", :value => 0}, 
-            :small => {:name => "Small", :value => 10}, 
-            :large => {:name => "Large", :value => 100}}
+  TYPES = { :free => {:name => "free", :value => 0}, 
+            :small => {:name => "small", :value => 10}, 
+            :large => {:name => "large", :value => 100}}
   
   attr_accessor :small_count, :large_count
   attr_accessible :small_count, :large_count, :giftee_id, :gifter_id, :gift_type, :message

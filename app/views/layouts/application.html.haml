@@ -3,10 +3,11 @@
   = render "layouts/shared/head"
   %body
     .wrapper          
-      = render :partial => "layouts/shared/flash", :locals => {:flash => flash}
+      
       = render :partial => "layouts/shared/navigation"
       .masthead
         .inner
           .container      
             .internal_container
+              = render :partial => "layouts/shared/flash", :locals => {:flash => flash}
               = yield

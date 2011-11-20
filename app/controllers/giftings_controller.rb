@@ -7,19 +7,28 @@ class GiftingsController < ApplicationController
   end
   
   def create
-    if params[:gift_id]
-      @gift = Gift.find(params[:gift_id])
+    if !current_user.is_admin && params[:gift][:gift_type] != "free"
+      @gift = Gift.where(:gifter_id => current_user.id, :gift_type => params[:gift][:gift_type], :giftee_id => nil).first
+      @gift.giftee_id = params[:gift][:giftee_id]
+      @gift.message = params[:gift][:message]
+      Rails.logger.info ">>>>>>>>>>>>>>"
+      Rails.logger.info @gift.inspect
+      Rails.logger.info ">>>>>>>>>>>>>>"
+      redirect_to company_url(current_user.company.id), :notice => "Not enough shared gifts" if @gift.nil?
     else
-      @gift = Gift.new(params[:gift])  
-      @company = Company.find(params[:company_id])
-      @company.budget -= Gift::TYPES[params[:gift][:gift_type].to_sym][:value]      
+      if params[:gift_id]
+        @gift = Gift.find(params[:gift_id])
+      else
+        @gift = Gift.new(params[:gift])  
+        @company = Company.find(params[:company_id])
+        @company.budget -= Gift::TYPES[params[:gift][:gift_type].to_sym][:value]      
+      end
+      @gift.company = Company.find(params[:company_id])
+      @gift.gift_type = Gift::TYPES[params[:gift][:gift_type].to_sym][:name]
+      @gift.value = Gift::TYPES[params[:gift][:gift_type].to_sym][:value]
     end
-    
-       
-    @gift.company = Company.find(params[:company_id])
-    @gift.gift_type = Gift::TYPES[params[:gift][:gift_type].to_sym][:name]
-    @gift.value = Gift::TYPES[params[:gift][:gift_type].to_sym][:value]
-    if @gift.save            
+
+    if @gift.save!            
       @company.save if @company
       redirect_to new_company_gifting_url(:company_id => @gift.company, :id => @gift.giftee_id), :notice => "Gifting was successful!"
     else
@@ -55,7 +64,7 @@ class GiftingsController < ApplicationController
       small_count.times do
         Rails.logger.info ">>>>>>>>>>>YYYYYYY"
         @gift = Gift.new( :gifter_id => params[:gift][:employee_id],   
-                          :gift_type => Gift::TYPES[:large][:name])
+                          :gift_type => Gift::TYPES[:small][:name])
         @gift.company_id = current_user.company.id
         @gift.value = Gift::TYPES[:large][:value]                  
         @gift.save

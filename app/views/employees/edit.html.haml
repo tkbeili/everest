@@ -1,12 +1,12 @@
 %h2= "Account"
-= semantic_form_for @employee, :html => {:multipart => true} do |f|
-  = f.inputs do
-    = f.input :first_name
-    = f.input :last_name
-    = f.input :email
-    = f.file_field :image
-  = f.buttons do  
-    = f.commit_button "Update"
-    
-%p Gifts I got
-= render "gifts_display", :gifts => @employee.gifts_received
+.image{:style => "display: inline-block; float:left"}
+  = image_tag @employee.image_url(:thumb)
+.form{:style => "display: inline-block; float:left; padding-left: 30px"}
+  = semantic_form_for @employee, :html => {:multipart => true} do |f|
+    = f.inputs do
+      = f.input :first_name
+      = f.input :last_name
+      = f.input :email
+      = f.file_field :image
+    = f.buttons do  
+      = f.commit_button "Update"
