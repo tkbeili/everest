@@ -1,4 +1,9 @@
 class EmployeesController < ApplicationController
+  def index
+    @company = current_user.company
+    @employees = @company.employees    
+  end
+  
   def new
     @employee = Employee.new
   end

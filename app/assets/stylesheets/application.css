@@ -16,6 +16,11 @@ body {
   padding: 0;	
 }
 
+.internal_container {
+	width: 100%;
+  margin-top: 50px;	
+}
+
 .wrapper {
 	margin: 0;
 	padding: 0;

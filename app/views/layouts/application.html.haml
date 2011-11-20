@@ -4,5 +4,9 @@
   %body
     .wrapper          
       = render :partial => "layouts/shared/flash", :locals => {:flash => flash}
-      .content_wrapper      
-        = yield
+      = render :partial => "layouts/shared/navigation"
+      .masthead
+        .inner
+          .container      
+            .internal_container
+              = yield
