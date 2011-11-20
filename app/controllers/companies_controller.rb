@@ -7,7 +7,7 @@ class CompaniesController < ApplicationController
   def show
     @company = current_user.company
     @employees = @company.employees
-    @gifts = @company.gifts.limit(50)
+    @gifts = @company.gifts.given.limit(50)
   end
   
   def new

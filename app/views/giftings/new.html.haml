@@ -6,11 +6,11 @@
 %h2 Gift the Employee
 = semantic_form_for @gift, :method => :post, :url => company_giftings_url(:company_id => @employee.company.id) do |gift|
   = gift.inputs do
-    = gift.input :giftee_id, :as => :hidden
-    = gift.input :gifter_id, :as => :hidden
+    = gift.input :giftee_id, :as => :hidden, :value => @employee.id
+    = gift.input :gifter_id, :as => :hidden, :value => current_user.id
     - Gift::TYPES.each do |key, value|      
       - if value[:value].to_i > 0
-        - if current_user.available_gifts(key.to_s).count > 0 || (current_user.is_admin || current_user.company.budget > value[:value].to_i)
+        - if current_user.available_gifts(key.to_s).count > 0 || (current_user.is_admin && current_user.company.budget > value[:value].to_i)
           %input{:type => :radio, :name => "gift[gift_type]", :value => key}
           =image_tag "#{key.to_s}_on.png"  
         - else
@@ -32,6 +32,6 @@
       = share.commit_button "Share it!"
 %h2 History
 %h3= "Gift the #{@employee.full_name} have receieved"
-= render "gift_listing", :gifts => @employee.gifts_received 
+= render "gift_listing", :gifts => @employee.gifts_received.given 
 %h3= "Gift the #{@employee.full_name} have given"
-= render "gift_listing", :gifts => @employee.gifts_given
+= render "gift_listing", :gifts => @employee.gifts_given.given

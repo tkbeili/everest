@@ -1,4 +1,4 @@
-class Company < ActiveRecord::Base
+ class Company < ActiveRecord::Base
   has_many :employees
   has_many :gifts
   
@@ -7,7 +7,7 @@ class Company < ActiveRecord::Base
   accepts_nested_attributes_for :employees, :allow_destroy => true
   
   def amount_spent
-    left + invested
+    left + invested + unspent
   end
   
   def invested
@@ -18,6 +18,12 @@ class Company < ActiveRecord::Base
   
   def left
     budget
+  end
+  
+  def unspent
+    unspent = 0
+    gifts.unspent.each {|gift| unspent += gift.value}
+    unspent      
   end
   
  end

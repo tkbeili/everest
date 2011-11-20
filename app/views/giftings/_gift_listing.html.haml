@@ -3,4 +3,8 @@
   = "#{gift.gifter.full_name} has gifted #{gift.giftee.full_name} on #{gift.created_at.strftime('%m/%d/%Y')}"
   = ". message: #{gift.message}" if gift.message
   %hr
+= "<i>no item!</i>".html_safe if gifts.empty?  
+
+
+  
   
