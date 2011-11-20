@@ -1,3 +1,25 @@
 // Place all the styles related to the giftings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.profile {
+  margin-top: 50px;
+  .image {
+    margin-right: 50px;  
+  }
+  .image, .description {
+    display: inline-block;
+  }
+}
+
+.force_left {
+  fieldset.buttons {
+    padding-left: 0px !important;  
+  }  
+}
+
+.float_left, .history {
+  display: block;
+  clear: both;
+  float: left;
+  width: 100%;
+}

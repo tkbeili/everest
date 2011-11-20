@@ -1,8 +1,11 @@
 .profile
-  = image_tag @employee.gravatar_url(root_url)
-  = @employee.full_name_no_email
-  = @employee.email
-  
+  .image
+    = image_tag @employee.gravatar_url(root_url)
+  .description  
+    %p= "First Name: #{@employee.first_name}"
+    %p= "Last Name: #{@employee.last_name}"
+    %p= "Email: @employee.email"
+%hr  
 %h2 Gift the Employee
 = semantic_form_for @gift, :method => :post, :url => company_giftings_url(:company_id => @employee.company.id) do |gift|
   = gift.inputs do
@@ -10,7 +13,7 @@
     = gift.input :gifter_id, :as => :hidden, :value => current_user.id
     - Gift::TYPES.each do |key, value|      
       - if value[:value].to_i > 0
-        - if current_user.available_gifts(key.to_s).count > 0 || (current_user.is_admin && current_user.company.budget > value[:value].to_i)
+        - if current_user.available_gifts(key.to_s).count > 0 || (current_user.is_admin && current_user.company.budget >= value[:value].to_i)
           %input{:type => :radio, :name => "gift[gift_type]", :value => key}
           =image_tag "#{key.to_s}_on.png"  
         - else
@@ -19,19 +22,28 @@
       - else
         %input{:type => :radio, :name => "gift[gift_type]", :value => key, :checked => true}
         =image_tag "free.png" 
-    = gift.input :message, :as => :text, :input_html => {:rows => 3}
-  = gift.buttons do  
-    = gift.commit_button "Gift it!"
+    = gift.input :message, :as => :text, :input_html => {:rows => 3, :width => "50%"}
+  .force_left
+    = gift.buttons do     
+      = gift.commit_button "Gift it!"
+%br      
+%hr      
 - if current_user.is_admin
   %h2="Share some cards with #{@employee.full_name} so that he/she can gift others"
-  = semantic_form_for :gift, :method => :post, :url => gift_share_url(:company_id => @employee.company.id) do |share|
-    = share.input :employee_id, :as => :hidden, :value => @employee.id
-    = share.input :small_count
-    = share.input :large_count
-    = share.buttons do  
-      = share.commit_button "Share it!"
-%h2 History
-%h3= "Gift the #{@employee.full_name} have receieved"
-= render "gift_listing", :gifts => @employee.gifts_received.given 
-%h3= "Gift the #{@employee.full_name} have given"
-= render "gift_listing", :gifts => @employee.gifts_given.given
+  .float_left
+    = semantic_form_for :gift, :method => :post, :url => gift_share_url(:company_id => @employee.company.id) do |share|
+      .form_content
+        = share.input :employee_id, :as => :hidden, :value => @employee.id
+        = share.input :small_count
+        = share.input :large_count
+        .force_left
+          = share.buttons do  
+            = share.commit_button "Share it!"
+      %br      
+    %hr
+.history      
+  %h2 History
+  %h3= "Gift the #{@employee.full_name} have receieved"
+  = render "gift_listing", :gifts => @employee.gifts_received.given 
+  %h3= "Gift the #{@employee.full_name} have given"
+  = render "gift_listing", :gifts => @employee.gifts_given.given
